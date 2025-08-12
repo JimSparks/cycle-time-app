@@ -115,7 +115,7 @@ if uploaded:
         if uploaded.name.lower().endswith(".csv"):
             raw = pd.read_csv(uploaded)
         else:
-            raw = pd.read_excel(uploaded)
+            raw = pd.read_excel(uploaded, engine="openpyxl")
 
         in_prog_set = set([s.strip().upper() for s in in_progress_aliases.split(",") if s.strip()])
         done_set = set([s.strip().upper() for s in done_aliases.split(",") if s.strip()])
